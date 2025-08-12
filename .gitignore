@@ -1,20 +1,7 @@
-# Byte-compiled files
 __pycache__/
 *.pyc
-*.pyo
-
-# Virtual environment
 venv/
-
-# Environment variables
-.env
-.env.*
-
-# Log files
 *.log
-
-# Pytest cache
-.pytest_cache/
-
-# VSCode settings
+.env
+.idea/
 .vscode/

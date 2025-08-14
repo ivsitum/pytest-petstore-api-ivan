@@ -1,7 +1,6 @@
 # Petstore API — test cases (working notes)
 
 scope: `POST /pet`, `GET /pet/{id}`, `PUT /pet`  
-out of scope (): upload image, store, user
 
 > note: swagger says required in Pet: `name`, `photoUrls`. `status` enum: `available|pending|sold`.  
 
@@ -10,7 +9,7 @@ out of scope (): upload image, store, user
 
 - [ ] **T001** — `POST /pet` — create pet (minimal valid)  
   steps: POST with unique `id`, `name`, `photoUrls=["http://ex.com/p.png"]`  
-  expect: `200`; response echoes `id`/`name`; basic Pet shape present
+  expect: `200`; response echoes `id`/`name`
 
 - [ ] **T002** — `GET /pet/{id}` — fetch created pet  
   pre: pet from T001  
@@ -20,11 +19,11 @@ out of scope (): upload image, store, user
 - [ ] **T003** — `PUT /pet` — update existing pet (name + status)  
   pre: pet from T001  
   steps: PUT same `id`, change `name`, `status`→`sold`  
-  expect: `200`; response reflects updates
+  expect: `200`
 
 - [ ] **T004** — `GET /pet/{id}` — unknown id  
   steps: GET with large random `id` (e.g., 12-digit)  
-  expect: `404` **or** `400` (record what we actually see)
+  expect: `404` **or** `400`
 
 - [ ] **T005** — `POST /pet` — missing required `name`  
   steps: POST without `name`  
@@ -40,9 +39,8 @@ out of scope (): upload image, store, user
 
 - [ ] **T008** — auth header check  
   steps: call POST/GET/PUT without `api_key` header  
-  expect: ideally `401/403`; reality: Petstore may ignore header → document actual behavior
+  expect: `401/403`
 
----
 
 ## additional coverage
 
